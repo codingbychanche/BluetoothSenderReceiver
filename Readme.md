@@ -1,7 +1,18 @@
-Bluetooth sender and receiver.
-
+Bluetooth sender and receiver
+=============================
 Shows how to exchange data between an Android app and a Tensy 2.0/ HC05- Bluetooth module.
-Data received is displayed on an conected OLED- display. Data can be send to teh Android app by
+Data received is displayed on an connected OLED- display. Data can be send to teh Android app by
 pressing a push- button. 
 
 The Android app serves as very simple data terminal.
+
+More Information about the Project can be found here:[CodingByChanche Blog](https://codingbychance.wordpress.com/2020/01/19/tensy-2-0-bluetooth-sender-receiver/?preview_id=973&preview_nonce=b2c4503f9e&preview=true) (German language Blog)
+
+Screenshoot
+===========
+![](Screenshoot.png)
+
+
+Circuit
+=======
+![](Scemantics.png)
