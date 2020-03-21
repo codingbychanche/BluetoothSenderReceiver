@@ -84,7 +84,8 @@ public class ClientThread extends Thread {
     }
 
     /**
-     *
+     * Returns instance of{@link ConnectedThreadReadWriteData} back to instance
+     * which created this.
      */
 
     public ConnectedThreadReadWriteData getConnectedThread() {
