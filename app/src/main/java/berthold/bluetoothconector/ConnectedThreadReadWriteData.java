@@ -22,6 +22,9 @@ import java.util.Arrays;
 
 public class ConnectedThreadReadWriteData extends Thread {
 
+    // Debug
+    private String tag;
+
     // BT
     private final BluetoothSocket mSocket;
     private final InputStream mIs;
@@ -59,6 +62,9 @@ public class ConnectedThreadReadWriteData extends Thread {
      */
     public void run() {
 
+        // Debug
+        tag=this.getClass().getSimpleName();
+
         // Notify class which created this instance. This class then
         // needs to get the instance of this thread in order to
         // communicate with it.
@@ -90,8 +96,10 @@ public class ConnectedThreadReadWriteData extends Thread {
      */
     public void send(String dataToSend) {
         try {
-            if (dataToSend.length() > 0)
+            if (dataToSend.length() > 0) {
                 mOs.write(dataToSend.getBytes());
+            }
+
             consoleOut("Send:"+dataToSend+"\n");
         } catch (IOException ee) {
             closeOutputStream();
@@ -125,6 +133,18 @@ public class ConnectedThreadReadWriteData extends Thread {
             mOs.close();
         } catch (IOException e) {
             consoleOut("Could not close output stream:" + e.toString()+"\n");
+        }
+    }
+
+    public void cancel(){
+        closeOutputStream();
+        closeInputStream();
+        try {
+            mSocket.close();
+        }catch (IOException e){
+            Log.v (tag," Error while closing Socket");
+        } finally {
+            this.interrupt();
         }
     }
 }

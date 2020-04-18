@@ -48,7 +48,6 @@ public class ClientThread extends Thread {
     public ClientThread(Notify notify, BluetoothDevice mDevice, TextView console, String dataToSend, Handler h) {
 
         this.notify = notify;
-        this.action = action;
         this.mDevice = mDevice;
         this.console = console;
         this.dataToSend = dataToSend;
@@ -99,6 +98,8 @@ public class ClientThread extends Thread {
     public void cancel() {
         try {
             mSocket.close();
+            if (ct != null)
+                ct.cancel();
             consoleOut("Disconected!\n");
         } catch (IOException e) {
             Log.v("Client: thread:", e.toString());
