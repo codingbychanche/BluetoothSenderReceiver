@@ -3,6 +3,7 @@
     <CLASSES>
       <root url="jar://$USER_HOME$/.android/build-cache/6d6b749d1befdd03d9ebcd12bd5937f8b1b95c33/output/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.android/build-cache/6d6b749d1befdd03d9ebcd12bd5937f8b1b95c33/output/res" />
+      <root url="file://$USER_HOME$/.android/build-cache/6d6b749d1befdd03d9ebcd12bd5937f8b1b95c33/output/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/animated-vector-drawable/24.2.1/animated-vector-drawable-24.2.1-javadoc.jar!/" />

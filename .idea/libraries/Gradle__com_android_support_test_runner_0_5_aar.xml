@@ -3,6 +3,7 @@
     <CLASSES>
       <root url="jar://$USER_HOME$/.android/build-cache/ee53bdaf063c3e2843f15c30246f0f610022b412/output/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.android/build-cache/ee53bdaf063c3e2843f15c30246f0f610022b412/output/res" />
+      <root url="file://$USER_HOME$/.android/build-cache/ee53bdaf063c3e2843f15c30246f0f610022b412/output/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/test/runner/0.5/runner-0.5-javadoc.jar!/" />

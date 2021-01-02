@@ -3,6 +3,7 @@
     <CLASSES>
       <root url="jar://$USER_HOME$/.android/build-cache/d574e42f07d2b1d22e91b308594ae88a31b21198/output/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.android/build-cache/d574e42f07d2b1d22e91b308594ae88a31b21198/output/res" />
+      <root url="file://$USER_HOME$/.android/build-cache/d574e42f07d2b1d22e91b308594ae88a31b21198/output/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

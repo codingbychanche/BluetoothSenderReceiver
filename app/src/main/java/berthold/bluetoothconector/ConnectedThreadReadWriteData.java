@@ -4,7 +4,6 @@ package berthold.bluetoothconector;
  * When a bluetooth connection has been established, this thread sends
  * or receives a data- stream to/ from the devices connected.
  * Send or received data is displayed in the console textView.
- *
  */
 
 import android.bluetooth.BluetoothSocket;
@@ -63,7 +62,7 @@ public class ConnectedThreadReadWriteData extends Thread {
     public void run() {
 
         // Debug
-        tag=this.getClass().getSimpleName();
+        tag = this.getClass().getSimpleName();
 
         // Notify class which created this instance. This class then
         // needs to get the instance of this thread in order to
@@ -72,22 +71,28 @@ public class ConnectedThreadReadWriteData extends Thread {
 
         consoleOut("Waiting for incoming data.......\n");
 
-        byte[] packetReceieved = new byte[1024];
+        int length;
 
-        while (!Thread.currentThread().isInterrupted()) {
-            try {
-                int bytesAvailable = mIs.available();
-                if (bytesAvailable > 0) {
-                    packetReceieved = new byte[bytesAvailable];
-                    mIs.read(packetReceieved);
+
+        try {
+            while (true) {
+                byte[] inBuffer = new byte[1024];
+                String received = null;
+                int readBytes = 0;
+                length = mIs.read(inBuffer);
+                while (readBytes != length) {
+                    received = new String(inBuffer, 0, length);
+                    readBytes++;
                 }
-                String received = new String(packetReceieved, 0, bytesAvailable);
+                // Wait before next data chunk arrives.
+                try {
+                    Thread.sleep(25);
+                } catch (InterruptedException e) {
+                }
                 consoleOut(received);
-
-            } catch (IOException e) {
-                Log.v("Error:", e.toString());
-                closeInputStream();
             }
+        } catch (IOException e) {
+            consoleOut("Fehler während der Datenübertragung. Verbindung wurde getrennt!");
         }
     }
 
@@ -100,7 +105,7 @@ public class ConnectedThreadReadWriteData extends Thread {
                 mOs.write(dataToSend.getBytes());
             }
 
-            consoleOut("Send:"+dataToSend+"\n");
+            consoleOut("Send:" + dataToSend + "\n");
         } catch (IOException ee) {
             closeOutputStream();
         }
@@ -124,7 +129,7 @@ public class ConnectedThreadReadWriteData extends Thread {
         try {
             mIs.close();
         } catch (IOException e) {
-            consoleOut("Could not close input stream:" + e.toString()+"\n");
+            consoleOut("Could not close input stream:" + e.toString() + "\n");
         }
     }
 
@@ -132,17 +137,17 @@ public class ConnectedThreadReadWriteData extends Thread {
         try {
             mOs.close();
         } catch (IOException e) {
-            consoleOut("Could not close output stream:" + e.toString()+"\n");
+            consoleOut("Could not close output stream:" + e.toString() + "\n");
         }
     }
 
-    public void cancel(){
+    public void cancel() {
         closeOutputStream();
         closeInputStream();
         try {
             mSocket.close();
-        }catch (IOException e){
-            Log.v (tag," Error while closing Socket");
+        } catch (IOException e) {
+            Log.v(tag, " Error while closing Socket");
         } finally {
             this.interrupt();
         }

@@ -3,6 +3,7 @@
     <CLASSES>
       <root url="jar://$USER_HOME$/.android/build-cache/a51145aa731ea9c53e42d7e63a25878d9eccc16e/output/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.android/build-cache/a51145aa731ea9c53e42d7e63a25878d9eccc16e/output/res" />
+      <root url="file://$USER_HOME$/.android/build-cache/a51145aa731ea9c53e42d7e63a25878d9eccc16e/output/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/test/espresso/espresso-core/2.2.2/espresso-core-2.2.2-javadoc.jar!/" />
